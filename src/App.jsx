@@ -28,7 +28,7 @@ function App() {
   return (
     <ProductProvider>
       <CartProvider>
-        <Router>
+        <Router basename="/Homefoods-E-commerce-website/">
           <ScrollToTop />
           <div className="app-container">
             <Navbar />
