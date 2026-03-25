@@ -12,22 +12,50 @@ export default function LandingPage() {
   return (
     <div className="landing-page">
       {/* Hero Section */}
-      <section className="hero">
-        <div className="container hero__content">
-          <div className="hero__text animate-fade-in-up">
-            <span className="badge badge-saffron">Traditional & Homemade</span>
-            <h1>Authentic Flavours <br /> <span className="text-gradient">From Our Home To Yours</span></h1>
-            <p>Experience the true taste of South India with our handcrafted Appalams, Podis, Pickles and traditional mixes.</p>
-            <div className="hero__actions">
-              <Link to="/shop" className="btn btn-primary btn-lg">Shop Now</Link>
-              <Link to="/about" className="btn btn-secondary btn-lg">Our Story</Link>
+      <section className="hero-v2">
+        <div className="container hero-v2__inner">
+          <div className="hero-v2__content animate-fade-in-up">
+            <div className="hero-v2__badge-container">
+              <span className="hero-v2__badge">Authentic & Hand-Crafted</span>
+            </div>
+            <h1 className="hero-v2__title">
+              Traditional Taste <br />
+              <span className="hero-v2__title-highlight">For Modern Homes</span>
+            </h1>
+            <p className="hero-v2__desc">
+              Experience the genuine soul of South Indian cuisine with our 100% natural, 
+              homemade Appalams, Podis, and traditional mixes.
+            </p>
+            <div className="hero-v2__actions">
+              <Link to="/shop" className="hero-v2__btn-primary">Shop Collection</Link>
+              <Link to="/about" className="hero-v2__btn-secondary">Learn Our Story</Link>
+            </div>
+            <div className="hero-v2__trust">
+              <span>⭐️⭐️⭐️⭐️⭐️ 2000+ Happy Homemakers</span>
             </div>
           </div>
-          <div className="hero__image-wrap animate-fade-in">
-            <div className="hero__image-bg"></div>
-            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=80" alt="Authentic Food" className="hero__image" />
+          
+          <div className="hero-v2__image-container animate-fade-in">
+            <div className="hero-v2__image-frame">
+              <img 
+                src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1000&q=80" 
+                alt="Traditional Spices" 
+                className="hero-v2__image"
+              />
+              <div className="hero-v2__floating-card hero-v2__floating-card--1 glass-card">
+                <span>🥒</span> Pickles
+              </div>
+              <div className="hero-v2__floating-card hero-v2__floating-card--2 glass-card">
+                <span>🌶️</span> Podis
+              </div>
+              <div className="hero-v2__floating-card hero-v2__floating-card--3 glass-card">
+                <span>🫓</span> Appalams
+              </div>
+            </div>
           </div>
         </div>
+        <div className="hero-v2__shape-1"></div>
+        <div className="hero-v2__shape-2"></div>
       </section>
 
       {/* Categories Horizontal Scroll */}
