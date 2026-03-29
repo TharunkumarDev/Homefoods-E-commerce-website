@@ -19,14 +19,14 @@ export default function ContactUsPage() {
           {/* Info */}
           <div className="contact-info animate-fade-in-up">
             <h2 style={{ marginBottom: '24px' }}>Contact <span className="text-gradient">Information</span></h2>
-            <p style={{ color: 'var(--gray)', marginBottom: '40px' }}>Feel free to contact us through any of these channels. We typically respond within a few hours.</p>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '40px' }}>Feel free to contact us through any of these channels. We typically respond within a few hours.</p>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
               <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
                 <span style={{ fontSize: '24px' }}>📞</span>
                 <div>
                   <h4 style={{ fontWeight: '700' }}>Phone / WhatsApp</h4>
-                  <p style={{ color: 'var(--gray)' }}>+91 99999 99999</p>
+                  <p style={{ color: 'var(--text-secondary)' }}>+91 99999 99999</p>
                 </div>
               </div>
               
@@ -34,7 +34,7 @@ export default function ContactUsPage() {
                 <span style={{ fontSize: '24px' }}>📧</span>
                 <div>
                   <h4 style={{ fontWeight: '700' }}>Email Address</h4>
-                  <p style={{ color: 'var(--gray)' }}>hello@homefresh.in</p>
+                  <p style={{ color: 'var(--text-secondary)' }}>hello@nalamvaazha.in</p>
                 </div>
               </div>
               
@@ -42,7 +42,7 @@ export default function ContactUsPage() {
                 <span style={{ fontSize: '24px' }}>📍</span>
                 <div>
                   <h4 style={{ fontWeight: '700' }}>Our Location</h4>
-                  <p style={{ color: 'var(--gray)' }}>123 Traditional St, Mylapore,<br />Chennai, Tamil Nadu - 600004</p>
+                  <p style={{ color: 'var(--text-secondary)' }}>123 Traditional St, Mylapore,<br />Chennai, Tamil Nadu - 600004</p>
                 </div>
               </div>
             </div>
@@ -91,10 +91,10 @@ export default function ContactUsPage() {
 
       {/* Map Placeholder */}
       <section className="container section-sm">
-        <div style={{ width: '100%', height: '400px', background: 'var(--cream-2)', borderRadius: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--cream-3)' }}>
+        <div style={{ width: '100%', height: '400px', background: 'var(--green-50)', borderRadius: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--border-light)' }}>
           <div style={{ textAlign: 'center' }}>
             <span style={{ fontSize: '48px', display: 'block', marginBottom: '10px' }}>🗺️</span>
-            <p style={{ fontWeight: '600', color: 'var(--gray)' }}>Google Maps Interactive Display Placeholder</p>
+            <p style={{ fontWeight: '600', color: 'var(--text-secondary)' }}>Google Maps Interactive Display Placeholder</p>
           </div>
         </div>
       </section>

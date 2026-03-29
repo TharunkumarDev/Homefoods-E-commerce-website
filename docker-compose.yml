@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  app:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - ./:/app
+      # Exclude local node_modules to avoid cross-platform binary issues
+      - /app/node_modules
+      - /app/backend/node_modules
+    ports:
+      - "5173:5173"
+      - "5005:5005"
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/homefresh
+      - PORT=5005
+    command: sh -c "npm install && cd backend && npm install && cd .. && npm run dev"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:

@@ -7,20 +7,8 @@ const WHATSAPP_NUMBER = '919999999999' // Replace with actual WhatsApp number
 export default function CartDrawer({ isOpen, onClose }) {
   const { items, removeItem, updateQty, totalPrice, clearCart } = useCart()
 
-  const handleWhatsAppOrder = () => {
-    if (items.length === 0) return
-
-    let message = '🏡 *HomeFresh Order*\n\n'
-    items.forEach(item => {
-      message += `• *${item.name}* (${item.unit || ''})\n`
-      message += `  Qty: ${item.qty} × ₹${item.price} = ₹${item.price * item.qty}\n\n`
-    })
-    message += `━━━━━━━━━━━━━━━━━━\n`
-    message += `*Total: ₹${totalPrice}*\n\n`
-    message += `Please confirm my order. Thank you! 🙏`
-
-    const encoded = encodeURIComponent(message)
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, '_blank')
+  const handleCheckout = () => {
+    onClose()
   }
 
   return (
@@ -110,16 +98,8 @@ export default function CartDrawer({ isOpen, onClose }) {
               </div>
             </div>
 
-            <button
-              className="btn btn-primary cart-drawer__whatsapp-btn"
-              onClick={handleWhatsAppOrder}
-            >
-              <span>📱</span>
-              Order via WhatsApp
-            </button>
-
-            <Link to="/cart" className="btn btn-secondary cart-drawer__view-btn" onClick={onClose}>
-              View Full Cart
+            <Link to="/cart" className="btn btn-primary cart-drawer__whatsapp-btn" onClick={onClose} style={{ marginBottom: 10 }}>
+              Proceed to Checkout
             </Link>
 
             <button

@@ -7,7 +7,7 @@ export const CATEGORIES = [
     color: '#F4A61B',
     accent: '#C87D00',
     description: 'Crispy, thin crackers made from lentil or rice flour — a South Indian staple.',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&q=80',
+    image: '/appalams.png',
   },
   {
     id: 'podis',
@@ -16,7 +16,7 @@ export const CATEGORIES = [
     color: '#C8360B',
     accent: '#8B1A00',
     description: 'Aromatic spiced powder blends to elevate every meal with authentic flavour.',
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=80',
+    image: '/podis.jpg',
   },
   {
     id: 'instant-mixes',
@@ -34,7 +34,7 @@ export const CATEGORIES = [
     color: '#7B4F2A',
     accent: '#4A2A0A',
     description: 'Tangy, spiced pickles made with traditional recipes passed down generations.',
-    image: 'https://images.unsplash.com/photo-1612257416648-a3f7e6a09a43?w=400&q=80',
+    image: '/pickle.jpg',
   },
   {
     id: 'vathal',
@@ -43,7 +43,7 @@ export const CATEGORIES = [
     color: '#C8820B',
     accent: '#8B5500',
     description: 'Sun-dried vegetables perfect for curries and rice dishes — pure tradition.',
-    image: 'https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=400&q=80',
+    image: '/vathal.jpg',
   },
 ];
 

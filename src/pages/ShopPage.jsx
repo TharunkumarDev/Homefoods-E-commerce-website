@@ -1,17 +1,16 @@
 import { useState, useMemo } from 'react'
 import { useProducts } from '../context/ProductContext'
-import { CATEGORIES } from '../data/categories'
 import ProductCard from '../components/ProductCard'
 import './ShopPage.css'
 
 export default function ShopPage() {
-  const { allProducts } = useProducts()
+  const { allProducts, categories } = useProducts()
   const [activeCategory, setActiveCategory] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
 
   const filteredProducts = useMemo(() => {
     return allProducts.filter(p => {
-      const matchesCategory = activeCategory === 'all' || p.category === activeCategory
+      const matchesCategory = activeCategory === 'all' || (p.category && p.category.slug === activeCategory)
       const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                             p.description.toLowerCase().includes(searchQuery.toLowerCase())
       return matchesCategory && matchesSearch
@@ -22,8 +21,8 @@ export default function ShopPage() {
     <div className="shop-page">
       <header className="page-hero">
         <div className="container">
-          <span className="badge badge-saffron">Fresh & Healthy</span>
-          <h1>Our Full <span className="text-gradient">Collection</span></h1>
+          <span className="badge badge-featured">Fresh & Healthy</span>
+          <h1>Our Full <span className="text-lime">Collection</span></h1>
           <p>Explore all our homemade delicacies in one place.</p>
         </div>
       </header>
@@ -49,13 +48,14 @@ export default function ShopPage() {
               >
                 All Products
               </button>
-              {CATEGORIES.map(cat => (
+              {categories.map(cat => (
                 <button
-                  key={cat.id}
-                  className={`filter-btn ${activeCategory === cat.id ? 'active' : ''}`}
-                  onClick={() => setActiveCategory(cat.id)}
+                  key={cat.slug}
+                  className={`filter-btn ${activeCategory === cat.slug ? 'active' : ''}`}
+                  onClick={() => setActiveCategory(cat.slug)}
                 >
-                  {cat.emoji} {cat.label}
+                  <img src={cat.image?.url} alt={cat.name} style={{ width: 20, height: 20, borderRadius: '50%', objectFit: 'cover', display: 'inline-block', marginRight: 8, verticalAlign: 'middle' }} /> 
+                  {cat.name}
                 </button>
               ))}
             </div>
@@ -78,7 +78,7 @@ export default function ShopPage() {
               <span className="icon">🥡</span>
               <h3>No products found</h3>
               <p>Try adjusting your search or category filter.</p>
-              <button className="btn btn-primary" onClick={() => { setActiveCategory('all'); setSearchQuery('') }}>
+              <button className="btn btn-lime" onClick={() => { setActiveCategory('all'); setSearchQuery('') }}>
                 Reset Filters
               </button>
             </div>

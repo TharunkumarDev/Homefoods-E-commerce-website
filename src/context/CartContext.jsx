@@ -6,7 +6,7 @@ const CartContext = createContext(null)
 export function CartProvider({ children }) {
   const [items, setItems] = useState(() => {
     try {
-      const saved = localStorage.getItem('homefresh_cart')
+      const saved = localStorage.getItem('nalamvaazha_cart')
       return saved ? JSON.parse(saved) : []
     } catch {
       return []
@@ -15,20 +15,38 @@ export function CartProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
-    localStorage.setItem('homefresh_cart', JSON.stringify(items))
+    localStorage.setItem('nalamvaazha_cart', JSON.stringify(items))
   }, [items])
 
   const addItem = (product) => {
+    const pid = product.id || product._id
+
+    // Build a lightweight cart item — no base64 images or nested objects
+    const imageUrl = product.images?.[0]?.url || product.image || ''
+    const cartImage = imageUrl.startsWith('data:')
+      ? 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&q=60'
+      : imageUrl
+    const catName = typeof product.category === 'object' ? product.category?.name : product.category
+
     setItems(prev => {
-      const existing = prev.find(i => i.id === product.id)
+      const existing = prev.find(i => i.id === pid)
       if (existing) {
         toast.success(`${product.name} quantity updated!`)
         return prev.map(i =>
-          i.id === product.id ? { ...i, qty: i.qty + 1 } : i
+          i.id === pid ? { ...i, qty: i.qty + 1 } : i
         )
       }
-      toast.success(`${product.name} added to cart! 🛒`)
-      return [...prev, { ...product, qty: 1 }]
+      toast.success(`${product.name} added to cart!`)
+      return [...prev, {
+        id: pid,
+        _id: pid,
+        name: product.name,
+        price: product.price,
+        unit: product.unit || '',
+        category: catName || '',
+        image: cartImage,
+        qty: 1
+      }]
     })
   }
 

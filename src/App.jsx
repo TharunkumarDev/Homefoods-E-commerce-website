@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { CartProvider } from './context/CartContext'
-import { ProductProvider } from './context/ProductContext'
+import { ProductProvider, useProducts } from './context/ProductContext'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
@@ -24,29 +24,59 @@ function ScrollToTop() {
   return null
 }
 
+function PageLoader() {
+  const { loading } = useProducts()
+  const [visible, setVisible] = useState(true)
+
+  useEffect(() => {
+    if (!loading) {
+      const timer = setTimeout(() => setVisible(false), 300)
+      return () => clearTimeout(timer)
+    }
+  }, [loading])
+
+  if (!visible) return null
+
+  return (
+    <div className={`page-loader ${!loading ? 'page-loader--hidden' : ''}`}>
+      <div className="page-loader__spinner" />
+      <p className="page-loader__text">Loading Nalam Vaazha...</p>
+    </div>
+  )
+}
+
+function AppContent() {
+  return (
+    <>
+      <PageLoader />
+      <Router>
+        <ScrollToTop />
+        <div className="app-container">
+          <Navbar />
+          <main className="content-wrap">
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/shop" element={<ShopPage />} />
+              <Route path="/shop/:categoryId" element={<CategoryPage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/about" element={<AboutUsPage />} />
+              <Route path="/faq" element={<FAQPage />} />
+              <Route path="/contact" element={<ContactUsPage />} />
+              <Route path="/admin" element={<AdminPage />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </>
+  )
+}
+
 function App() {
   return (
     <ProductProvider>
       <CartProvider>
-        <Router basename="/Homefoods-E-commerce-website/">
-          <ScrollToTop />
-          <div className="app-container">
-            <Navbar />
-            <main className="content-wrap">
-              <Routes>
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/shop" element={<ShopPage />} />
-                <Route path="/shop/:categoryId" element={<CategoryPage />} />
-                <Route path="/cart" element={<CartPage />} />
-                <Route path="/about" element={<AboutUsPage />} />
-                <Route path="/faq" element={<FAQPage />} />
-                <Route path="/contact" element={<ContactUsPage />} />
-                <Route path="/admin" element={<AdminPage />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
-        </Router>
+        <AppContent />
       </CartProvider>
     </ProductProvider>
   )

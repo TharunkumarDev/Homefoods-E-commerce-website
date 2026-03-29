@@ -8,7 +8,7 @@ export default function ProductCard({ product }) {
     <article className="product-card">
       <div className="product-card__image-wrap">
         <img
-          src={product.image}
+          src={product.images?.[0]?.url || product.image}
           alt={product.name}
           className="product-card__image"
           loading="lazy"
@@ -25,7 +25,7 @@ export default function ProductCard({ product }) {
       </div>
 
       <div className="product-card__body">
-        <p className="product-card__category">{product.category.replace(/-/g, ' ')}</p>
+        <p className="product-card__category">{(product.category?.name || String(product.category)).replace(/-/g, ' ')}</p>
         <h3 className="product-card__name">{product.name}</h3>
         {product.unit && (
           <p className="product-card__unit">{product.unit}</p>

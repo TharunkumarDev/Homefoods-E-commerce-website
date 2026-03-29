@@ -1,13 +1,12 @@
 import { useParams, Link } from 'react-router-dom'
 import { useProducts } from '../context/ProductContext'
-import { getCategoryById } from '../data/categories'
 import ProductCard from '../components/ProductCard'
 
 export default function CategoryPage() {
   const { categoryId } = useParams()
-  const { getByCategory } = useProducts()
+  const { getByCategory, categories } = useProducts()
   
-  const category = getCategoryById(categoryId)
+  const category = categories.find(c => c.slug === categoryId)
   const products = getByCategory(categoryId)
 
   if (!category) {
@@ -25,20 +24,20 @@ export default function CategoryPage() {
 
   return (
     <div className="category-page">
-      <header className="page-hero" style={{ backgroundColor: category.accent }}>
+      <header className="page-hero" style={{ backgroundColor: 'var(--cream-2)' }}>
         <div className="container">
           <Link to="/shop" className="btn btn-ghost btn-sm" style={{ marginBottom: '20px' }}>
             ← Back to Shop
           </Link>
-          <span className="badge badge-saffron">{category.emoji} Authentic</span>
-          <h1>{category.label}</h1>
-          <p>{category.description}</p>
+          <span className="badge badge-featured">Authentic</span>
+          <h1>{category.name}</h1>
+          <p>{category.description || `Browse our collection of ${category.name}`}</p>
         </div>
       </header>
 
       <section className="section container">
         <div className="section-header">
-          <h2>Our <span className="text-gradient">{category.label}</span> Range</h2>
+          <h2>Our <span className="text-lime">{category.name}</span> Range</h2>
           <p>Hand-picked and traditionally prepared just for you.</p>
         </div>
 
