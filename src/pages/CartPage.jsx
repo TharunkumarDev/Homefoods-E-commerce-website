@@ -20,7 +20,7 @@ export default function CartPage() {
   })
 
   const [deliveryCharge, setDeliveryCharge] = useState(0)
-  const [adminWhatsAppNumber, setAdminWhatsAppNumber] = useState('919999999999')
+  const [adminWhatsAppNumber, setAdminWhatsAppNumber] = useState('918778836682')
 
   useEffect(() => {
     // Load from localStorage first
@@ -29,7 +29,7 @@ export default function CartPage() {
       if (local) {
         const parsed = JSON.parse(local)
         setDeliveryCharge(Number(parsed.deliveryCharge) || 0)
-        setAdminWhatsAppNumber(parsed.whatsappNumber || '919999999999')
+        setAdminWhatsAppNumber(parsed.whatsappNumber || '918778836682')
       }
     } catch {}
 
@@ -38,7 +38,7 @@ export default function CartPage() {
       .then(res => {
         const s = res.data.data
         setDeliveryCharge(Number(s.deliveryCharge) || 0)
-        setAdminWhatsAppNumber(s.whatsappNumber || '919999999999')
+        setAdminWhatsAppNumber(s.whatsappNumber || '918778836682')
       })
       .catch(() => {})
   }, [])
