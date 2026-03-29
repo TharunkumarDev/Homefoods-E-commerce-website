@@ -1,7 +1,9 @@
-/* Hero V3 — Dark Premium Redesign */
+/* ============================================================
+   Hero V3 — Reference-inspired: dark left + lime blob right
+   ============================================================ */
 .hero-v3 {
   min-height: 100vh;
-  background: linear-gradient(160deg, #0D3B13 0%, #1B5E20 40%, #2E7D32 100%);
+  background: #0D3B13;
   display: flex;
   align-items: center;
   position: relative;
@@ -9,45 +11,43 @@
   padding-top: 80px;
 }
 
-.hero-v3__inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 60px;
-  position: relative;
-  z-index: 10;
-}
-
-/* Decorative elements */
-.hero-v3__glow-1 {
+/* Lime background that bleeds to the right */
+.hero-v3__lime-bg {
   position: absolute;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(212, 237, 33, 0.15) 0%, transparent 70%);
-  top: -100px;
-  left: -100px;
-  pointer-events: none;
-}
-
-.hero-v3__glow-2 {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(67, 160, 71, 0.2) 0%, transparent 70%);
-  bottom: -50px;
-  right: 10%;
+  top: -20%;
+  right: -10%;
+  width: 60%;
+  height: 140%;
+  background: var(--lime-400);
+  border-radius: 0 0 0 40%;
+  z-index: 1;
   pointer-events: none;
 }
 
 .hero-v3__pattern {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 30px 30px;
+  background-image: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+  z-index: 2;
   pointer-events: none;
 }
 
-/* Content */
+.hero-v3__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+  z-index: 10;
+}
+
+/* ── Left Content ── */
+.hero-v3__content {
+  position: relative;
+  z-index: 10;
+}
+
 .hero-v3__badge {
   display: inline-flex;
   align-items: center;
@@ -79,12 +79,20 @@
 }
 
 .hero-v3__title {
-  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
   font-weight: 900;
   color: #fff;
-  line-height: 1.08;
+  line-height: 1.1;
   margin-bottom: 24px;
-  letter-spacing: -1.5px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+.hero-v3__emoji {
+  display: inline-block;
+  font-style: normal;
+  text-transform: none;
+  margin: 0 4px;
 }
 
 .hero-v3__title-line2 {
@@ -93,16 +101,16 @@
 }
 
 .hero-v3__desc {
-  font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 480px;
-  margin-bottom: 40px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 420px;
+  margin-bottom: 36px;
   line-height: 1.7;
 }
 
 .hero-v3__actions {
   display: flex;
-  gap: 16px;
+  gap: 14px;
   margin-bottom: 48px;
 }
 
@@ -110,12 +118,12 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 36px;
+  padding: 15px 32px;
   background: var(--lime-400);
   color: var(--green-900);
-  border-radius: var(--radius-sm);
+  border-radius: 60px;
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   border: none;
   cursor: pointer;
@@ -126,21 +134,21 @@
 .hero-v3__btn-primary:hover {
   background: #e8f726;
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(212, 237, 33, 0.3);
+  box-shadow: 0 8px 30px rgba(212, 237, 33, 0.35);
 }
 
 .hero-v3__btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 16px 36px;
+  padding: 15px 32px;
   background: transparent;
   color: #fff;
-  border-radius: var(--radius-sm);
+  border-radius: 60px;
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
-  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   transition: all 0.25s ease;
   text-decoration: none;
@@ -151,10 +159,10 @@
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* Stats row */
+/* Stats */
 .hero-v3__stats {
   display: flex;
-  gap: 40px;
+  gap: 36px;
 }
 
 .hero-v3__stat {
@@ -164,105 +172,170 @@
 
 .hero-v3__stat-num {
   font-family: var(--font-body);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: #fff;
 }
 
 .hero-v3__stat-label {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
   font-weight: 500;
+  letter-spacing: 0.03em;
 }
 
-/* Image side */
+/* ── Right Visual ── */
 .hero-v3__visual {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 520px;
 }
 
-.hero-v3__img-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  width: 100%;
-  max-width: 520px;
+/* Organic lime blob behind the food image */
+.hero-v3__blob {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  background: linear-gradient(135deg, #C6E60B 0%, #8BC34A 100%);
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+  z-index: 1;
+  opacity: 0.85;
+  filter: blur(1px);
+  animation: blob-morph 8s ease-in-out infinite;
 }
 
-.hero-v3__img-card {
-  border-radius: 20px;
-  overflow: hidden;
+@keyframes blob-morph {
+  0%, 100% { border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; }
+  33%       { border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%; }
+  66%       { border-radius: 55% 45% 60% 40% / 45% 55% 50% 50%; }
+}
+
+/* Central circular food image */
+.hero-v3__main-img-wrap {
   position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 0.4s ease;
+  z-index: 3;
+  width: 370px;
+  height: 370px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 8px rgba(255,255,255,0.2),
+    0 30px 80px rgba(0,0,0,0.35);
 }
 
-.hero-v3__img-card:hover {
-  transform: translateY(-6px);
-}
-
-.hero-v3__img-card--tall {
-  grid-row: span 2;
-}
-
-.hero-v3__img-card img {
+.hero-v3__main-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  transition: transform 0.6s ease;
 }
 
-.hero-v3__img-card--tall img {
-  min-height: 360px;
+.hero-v3__main-img-wrap:hover .hero-v3__main-img {
+  transform: scale(1.08);
 }
 
-.hero-v3__img-card:not(.hero-v3__img-card--tall) img {
-  height: 170px;
-}
-
-.hero-v3__img-label {
+/* Scattered small food images (like leaves/herbs in the reference) */
+.hero-v3__scatter {
   position: absolute;
-  bottom: 12px;
-  left: 12px;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-}
-
-/* Ring decoration */
-.hero-v3__ring {
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  z-index: 4;
   border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  border: 3px solid rgba(255,255,255,0.3);
   pointer-events: none;
 }
 
-.hero-v3__ring--2 {
-  width: 450px;
-  height: 450px;
-  border-color: rgba(255, 255, 255, 0.06);
+.hero-v3__scatter--1 {
+  width: 70px;
+  height: 70px;
+  top: 5%;
+  left: 5%;
+  animation: float-pill 5s ease-in-out infinite;
 }
 
-/* Responsive */
+.hero-v3__scatter--2 {
+  width: 60px;
+  height: 60px;
+  bottom: 12%;
+  right: 2%;
+  animation: float-pill 4s ease-in-out 1s infinite;
+}
+
+.hero-v3__scatter--3 {
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  right: -5%;
+  animation: float-pill 4.5s ease-in-out 0.5s infinite;
+}
+
+/* Floating pill cards */
+.hero-v3__float {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.95);
+  border-radius: var(--radius-full);
+  padding: 10px 18px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  white-space: nowrap;
+}
+
+.hero-v3__float-icon { font-size: 18px; }
+
+.hero-v3__float-name {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green-900);
+  letter-spacing: 0.02em;
+}
+
+/* Positions */
+.hero-v3__float--1 {
+  top: 8%;
+  left: 0;
+  animation: float-pill 4s ease-in-out infinite;
+}
+.hero-v3__float--2 {
+  top: 15%;
+  right: -15px;
+  animation: float-pill 4.5s ease-in-out 0.5s infinite;
+}
+.hero-v3__float--3 {
+  bottom: 18%;
+  left: -20px;
+  animation: float-pill 5s ease-in-out 1s infinite;
+}
+.hero-v3__float--4 {
+  bottom: 8%;
+  right: 5%;
+  animation: float-pill 4.2s ease-in-out 1.5s infinite;
+}
+
+@keyframes float-pill {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+/* ── Responsive ── */
 @media (max-width: 1024px) {
   .hero-v3__inner {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 50px;
+  }
+
+  .hero-v3__lime-bg {
+    top: 50%;
+    right: -20%;
+    width: 120%;
+    height: 60%;
+    border-radius: 40% 40% 0 0;
   }
 
   .hero-v3__desc {
@@ -279,8 +352,19 @@
   }
 
   .hero-v3__visual {
-    max-width: 460px;
+    max-width: 420px;
+    min-height: 420px;
     margin: 0 auto;
+  }
+
+  .hero-v3__blob {
+    width: 360px;
+    height: 360px;
+  }
+
+  .hero-v3__main-img-wrap {
+    width: 290px;
+    height: 290px;
   }
 }
 
@@ -291,8 +375,8 @@
   }
 
   .hero-v3__title {
-    font-size: 2.4rem;
-    letter-spacing: -1px;
+    font-size: 2.2rem;
+    letter-spacing: -0.5px;
   }
 
   .hero-v3__actions {
@@ -301,20 +385,28 @@
   }
 
   .hero-v3__stats {
-    gap: 24px;
+    gap: 20px;
   }
 
-  .hero-v3__img-grid {
-    gap: 10px;
+  .hero-v3__visual {
+    max-width: 300px;
+    min-height: 320px;
   }
 
-  .hero-v3__img-card--tall img {
-    min-height: 240px;
+  .hero-v3__blob {
+    width: 280px;
+    height: 280px;
   }
 
-  .hero-v3__img-card:not(.hero-v3__img-card--tall) img {
-    height: 115px;
+  .hero-v3__main-img-wrap {
+    width: 220px;
+    height: 220px;
   }
+
+  .hero-v3__scatter { display: none; }
+  .hero-v3__float { padding: 7px 13px; }
+  .hero-v3__float-icon { font-size: 15px; }
+  .hero-v3__float-name { font-size: 11px; }
 }
 
 /* ============================================================

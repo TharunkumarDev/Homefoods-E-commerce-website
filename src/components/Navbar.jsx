@@ -30,7 +30,7 @@ export default function Navbar() {
         <div className="container navbar__inner">
           {/* Logo */}
           <Link to="/" className="navbar__logo">
-            <img src="/logo.png" alt="Nalam Vaazha" className="navbar__logo-img" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Nalam Vaazha" className="navbar__logo-img" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
             <span className="navbar__brand" style={{ display: 'none' }}>
               Nalam <span className="navbar__brand-accent">Vaazha</span>
             </span>

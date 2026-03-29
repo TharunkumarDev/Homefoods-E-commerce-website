@@ -13,17 +13,18 @@ export default function LandingPage() {
     <div className="landing-page">
       {/* Hero Section */}
       <section className="hero-v3">
+        {/* Full-width lime blob on the right */}
+        <div className="hero-v3__lime-bg" />
         <div className="hero-v3__pattern" />
-        <div className="hero-v3__glow-1" />
-        <div className="hero-v3__glow-2" />
 
         <div className="container hero-v3__inner">
-          <div className="hero-v3__content animate-fade-in-up">
+          {/* Left — Text Content */}
+          <div className="hero-v3__content">
             <span className="hero-v3__badge">தினந்தோறும் ஆரோக்கியம்</span>
 
             <h1 className="hero-v3__title">
-              Nalam Vaazha
-              <span className="hero-v3__title-line2">Health & Wellness</span>
+              GOOD <span className="hero-v3__emoji">🌿</span>TASTE.
+              <span className="hero-v3__title-line2">GOOD <span className="hero-v3__emoji">😋</span>HEALTH.</span>
             </h1>
 
             <p className="hero-v3__desc">
@@ -55,22 +56,39 @@ export default function LandingPage() {
             </div>
           </div>
 
+          {/* Right — Visual */}
           <div className="hero-v3__visual">
-            <div className="hero-v3__ring" />
-            <div className="hero-v3__ring hero-v3__ring--2" />
-            <div className="hero-v3__img-grid">
-              <div className="hero-v3__img-card hero-v3__img-card--tall">
-                <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=80" alt="Traditional Spices" />
-                <span className="hero-v3__img-label">Podis & Spices</span>
-              </div>
-              <div className="hero-v3__img-card">
-                <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=400&q=80" alt="Pickles" />
-                <span className="hero-v3__img-label">Pickles</span>
-              </div>
-              <div className="hero-v3__img-card">
-                <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&q=80" alt="Appalams" />
-                <span className="hero-v3__img-label">Appalams</span>
-              </div>
+            <div className="hero-v3__blob" />
+
+            <div className="hero-v3__main-img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=700&q=85"
+                alt="Traditional Spices & Homemade Foods"
+                className="hero-v3__main-img"
+              />
+            </div>
+
+            {/* Scattered food elements */}
+            <img src="https://images.unsplash.com/photo-1509358271058-abbe9ab3e420?w=100&q=80" alt="" className="hero-v3__scatter hero-v3__scatter--1" />
+            <img src="https://images.unsplash.com/photo-1599909533601-0e5e3cc0a920?w=100&q=80" alt="" className="hero-v3__scatter hero-v3__scatter--2" />
+            <img src="https://images.unsplash.com/photo-1472476443507-c7a5948772fc?w=80&q=80" alt="" className="hero-v3__scatter hero-v3__scatter--3" />
+
+            {/* Floating pill cards */}
+            <div className="hero-v3__float hero-v3__float--1">
+              <span className="hero-v3__float-icon">🥒</span>
+              <span className="hero-v3__float-name">Pickles</span>
+            </div>
+            <div className="hero-v3__float hero-v3__float--2">
+              <span className="hero-v3__float-icon">🌶️</span>
+              <span className="hero-v3__float-name">Podis</span>
+            </div>
+            <div className="hero-v3__float hero-v3__float--3">
+              <span className="hero-v3__float-icon">🫓</span>
+              <span className="hero-v3__float-name">Appalams</span>
+            </div>
+            <div className="hero-v3__float hero-v3__float--4">
+              <span className="hero-v3__float-icon">🍃</span>
+              <span className="hero-v3__float-name">Vathal</span>
             </div>
           </div>
         </div>

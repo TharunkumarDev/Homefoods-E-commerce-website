@@ -8,13 +8,20 @@ const ProductContext = createContext(null)
 const STORAGE_KEY = 'nalamvaazha_products'
 const CAT_STORAGE_KEY = 'nalamvaazha_categories'
 
+const BASE = import.meta.env.BASE_URL
+
+function resolveAsset(path) {
+  if (!path || path.startsWith('http') || path.startsWith('data:')) return path
+  return `${BASE}${path.replace(/^\//, '')}`
+}
+
 function buildStaticCategories() {
   return CATEGORIES.map(c => ({
     _id: c.id,
     name: c.label,
     slug: c.id,
     description: c.description,
-    image: { url: c.image }
+    image: { url: resolveAsset(c.image) }
   }))
 }
 

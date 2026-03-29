@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer__brand">
             <Link to="/" className="footer__logo">
-              <img src="/logo.png" alt="Nalam Vaazha" className="footer__logo-img" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
+              <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Nalam Vaazha" className="footer__logo-img" onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }} />
               <span className="footer__logo-name" style={{ display: 'none' }}>Nalam <span>Vaazha</span></span>
             </Link>
             <p className="footer__tagline">
@@ -20,7 +20,7 @@ export default function Footer() {
             <div className="footer__social">
               <a href="#" className="footer__social-btn" aria-label="Instagram">📸</a>
               <a href="#" className="footer__social-btn" aria-label="Facebook">👍</a>
-              <a href="https://wa.me/919999999999" className="footer__social-btn" aria-label="WhatsApp" target="_blank" rel="noreferrer">💬</a>
+              <a href="https://wa.me/918778836682" className="footer__social-btn" aria-label="WhatsApp" target="_blank" rel="noreferrer">💬</a>
             </div>
           </div>
 
